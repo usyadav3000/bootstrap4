@@ -12,27 +12,6 @@
         <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
         <link rel="stylesheet" href="css/styles.css">
-<style>
-.carousel{
-    background:#512DA8;
-}
-.carousel-item{
-    height: 300px;
-}
-.carousel-item img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-height: 300px;
-}
-#carouselButton{
-    right: 0px;
-    position: absolute;
-    bottom: 0px;
-    z-index: 1;
-}
-
-</style>
     <title>Ristorante Con Fusion</title>
 </head>
 
@@ -51,7 +30,7 @@
                 <li class="nav-item"><a class="nav-link" href="contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
             </ul>
             <span class="navbar-text">
-             <a data-toggle="modal" data-target="#loginModal">
+             <a id="loginModalToggle">
              <span class="fa fa-sign-in"></span> Login
              </a>
             </span>
@@ -113,8 +92,8 @@
                     <img src="img/logo.png" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm align-self-center">
-                   <a role="button" class="btn btn-block nav-link btn-warning"
-                   data-toggle="modal" data-target="#reserveModal">Reserve Table</a>
+                   <a id="reserveModalToggle" class="btn btn-block nav-link btn-warning"
+                   role="button">Reserve Table</a>
                 </div>
             </div>
         </div>
@@ -129,7 +108,7 @@
                 </button>
                 </div>
                 <div class="modal-body">
-                        <form>
+                        <form id="reserve-table">
                                 <div class="form-group row">
                                     <label for="numberOGst" class="col-12 col-md-2 col-form-label">Number of Guests</label>
                                     <div class="col-md-10">
@@ -355,6 +334,12 @@
                 $('#carouselButton').children('span').removeClass('fa-play');
                 $('#carouselButton').children('span').addClass('fa-pause');
             }
+        });
+        $('#loginModalToggle').click(()=>{
+            $('#loginModal').modal('toggle');
+        });
+        $('#reserveModalToggle').click(()=>{
+            $('#reserveModal').modal('toggle');
         });
        
     });
